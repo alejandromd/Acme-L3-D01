@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>207</y>
+      <w>315</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Role&gt;&gt;
+Lecturer
+--
++ almaMater: String {NotBlank, Length(max = 75)}
++ resume: String {NotBlank, Length(max = 100)}
++ qualifications: String {NotBlank, Length(max = 100)}
++ link: String {URL}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>423</x>
+      <y>207</y>
+      <w>387</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Entity&gt;&gt;
+Course
+--
++ code: String {NotBlank, Unique, Pattern(“[A-Z]{1,3}[0-9]{3}”)}
++ title: String {NotBlank, Length(max = 75)}
++ summary: String {NotBlank, Length(max = 100)}
++ courseType: Nature {NotNull}
++ retailPrice: Money {NotNull}
++ link: String {URL}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>423</x>
+      <y>540</y>
+      <w>378</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Entity&gt;&gt;
+Lecture
+--
++ title: String {NotBlank, Length(max = 75)}
++ summary: String {NotBlank, Length(max = 100)}
++ estimatedLearningTime: double{Digits(Integer=3, fraction=2)}
++ body: String {NotBlank, Length(max = 100)}
++ lectureType: Nature {NotNull}
++ link: String {URL}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>126</x>
+      <y>423</y>
+      <w>108</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Enum&gt;&gt;
+Nature
+--
++ THEORY
++ HANDS_ON
++ BALANCED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>171</x>
+      <y>576</y>
+      <w>216</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>The minimun value that 
+estimatedLearningTime
+can have is 0.01
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>378</x>
+      <y>603</y>
+      <w>63</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>594</x>
+      <y>0</y>
+      <w>387</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Form&gt;&gt;
+LecturerDashboard
+--
++ numLecturesType: Map&lt;LectureType, Integer&gt;
++ statisticLectures: Statistic
++ statisticCourses: Statistic</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>333</x>
+      <y>360</y>
+      <w>153</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Amount must be positive
+or zero
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>432</x>
+      <y>324</y>
+      <w>27</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>306</x>
+      <y>261</y>
+      <w>135</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>531</x>
+      <y>396</y>
+      <w>171</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Entity&gt;&gt;
+CourseLecture
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>603</x>
+      <y>324</y>
+      <w>45</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>603</x>
+      <y>459</y>
+      <w>45</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>405</x>
+      <y>0</y>
+      <w>144</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;DataType&gt;&gt;
+Statistic
+--
++ count: int
++ average: Double
++ max: Double
++ min: Double
++ deviation: Double</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
