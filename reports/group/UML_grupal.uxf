@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>525</x>
+      <y>364</y>
+      <w>224</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Entity&gt;&gt;
+Peep
+--
++ instantiationMoment: Date {Past, NotBlank}
++ title: String {NotBlank, Length(max = 75)}
++ nick: String {NotBlank, Length(max = 75)}
++ message: String {NotBlank, Length(max = 100)}
++ emailAdress: String {Email}
++ link: String {Url}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>427</x>
+      <y>245</y>
+      <w>224</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Entity&gt;&gt;
+Bulletin
+--
++ instantiationMoment: Date {NotBlank, Past}
++ title: String {NotBlank, Length(max = 75)}
++ message: String {NotBlank, Length(max = 100)}
++ flag: boolean
++ link: String {Url}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>189</x>
+      <y>364</y>
+      <w>301</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Entity&gt;&gt;
+Offer
+--
++ instantiationMoment: Date {NotBlank, Past}
++ heading: String {NotBlank,Length(max = 75)}
++ summary: String {NotBlank, Length(max = 100)}
++ availabilityPeriodStart: Date {NotBlank, Temporal(TIMESTAMP)}
++ availabilityPeriodEnd: Date {NotBlank,Temporal(TIMESTAMP)}
++ price: Money
++ link: String {Url}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>441</x>
+      <y>119</y>
+      <w>224</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Entity&gt;&gt;
+Note
+--
++ instantiationMoment: Date {NotBlank, Past}
++ title: String {NotBlank,Length(max = 75)}
++ author: String {NotBlank, Length(max = 75)}
++ message: String {NotBlank, Length(max = 100)}
++ email: String {Email}
++ link: String {Url}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>532</x>
+      <y>56</y>
+      <w>21</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>672</x>
+      <y>245</y>
+      <w>280</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Entity&gt;&gt;
+Banner
+--
++ instantiation/update: Date {Past, NotBlank}
++ displayPeriodStart: Date {Temporal(TIMESTAMP), NotBlank}
++ displayPeriodEnd: Date {Temporal(TIMESTAMP), NotBlank}
++ linkPicture: String {NotBlank, Url}
++ slogan: String {NotBlank, Length(max = 75)}
++ linkDoc: String {NotBlank, Url}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>238</x>
+      <y>497</y>
+      <w>238</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>availabilityPeriodStart tiene que empezar
+al menos 1 dia despues de instantiationMomentDate
+y tiene que haber una diferencia de una
+semana con availabilityPeriodEnd.
+bg=blue
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>973</x>
+      <y>182</y>
+      <w>210</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>displayPeriodStart debe ocurrir en cualquier
+momento despues de instantiation/update y
+displayPeriodEnd debe tener una diferencia de
+al menos una semana con displayPeriodStart.
+bg=blue
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>987</x>
+      <y>294</y>
+      <w>147</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>la foto en linkPicture debe estar
+guardada en otro sitio.
+bg=blue
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>203</x>
+      <y>175</y>
+      <w>189</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Form&gt;&gt;
+Administrator Dashboard
+--
++ numberOfPrincipalRoles: Integer
++ peepsRatio: Double
++ bulletinFlagRatio: Double
++ maximunBudgetOffers: Double
++ minimunBudgetOffers: Double
++ averageBudgetOffers: Double
++ standardDeviationBudgetOffers: Double
++ maximunNotes: Integer
++ minimunNotes: Integer
++ averageNotes: Double
++ standardDeviationNotes: Double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>28</x>
+      <y>203</y>
+      <w>140</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>El calculo de budget se hace
+agrupando por
+currency
+bg=blue
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>0</x>
+      <y>280</y>
+      <w>168</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>El calculo de los parametros de note
+solo tiene en cuenta las escritas
+en las ultimas 10 semanas.
+bg=blue
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>847</x>
+      <y>196</y>
+      <w>140</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0;180.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>945</x>
+      <y>301</y>
+      <w>56</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>161</x>
+      <y>217</y>
+      <w>56</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>161</x>
+      <y>301</y>
+      <w>56</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>84</x>
+      <y>126</y>
+      <w>98</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>peeps ratio usa
+tanto email como link
+para calcularse
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>175</x>
+      <y>140</y>
+      <w>84</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>100.0;50.0;100.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>308</x>
+      <y>455</y>
+      <w>21</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>434</x>
+      <y>0</y>
+      <w>217</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Author se calcula de la siguiente forma
+&lt;username&gt;-&lt;surname,name&gt; siendo username
+el nombre de usuario de la persona que crea la
+nota, y &lt;surname,name&gt; el nombre completo de
+dicha persona
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>49</x>
+      <y>399</y>
+      <w>98</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>price tiene que ser
+positivo o 0.
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>140</x>
+      <y>413</y>
+      <w>63</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
